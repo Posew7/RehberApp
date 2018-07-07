@@ -4,6 +4,8 @@ import com.bilisimegitim.rehberapp.session.GirisFacade;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 @Named(value = "girisMB")
 @RequestScoped
@@ -41,6 +43,7 @@ public class GirisMB {
         if (sonuc) {
             return "menu.xhtml";
         } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "HATA", "kullanıcı adı veya şifre yanlış"));
             return "";
         }
 
