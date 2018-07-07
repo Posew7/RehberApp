@@ -34,7 +34,7 @@ public class GirisMB {
         this.sifre = sifre;
     }
 
-    public String girisKontrol() {
+    public String giris() {
 
         boolean sonuc = girisFacade.girisKontrol(kullanici, sifre);
 
