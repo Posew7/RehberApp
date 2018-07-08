@@ -42,7 +42,7 @@ public class GirisMB {
         boolean sonuc = girisFacade.girisKontrol(kullanici, sifre);
 
         if (sonuc) {
-            HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+            HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
             session.setAttribute("username", kullanici);
             return "menu.xhtml";
         } else {
