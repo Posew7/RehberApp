@@ -2,6 +2,8 @@ package com.bilisimegitim.rehberapp.session;
 
 import com.bilisimegitim.rehberapp.entity.Giris;
 import javax.ejb.Stateless;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -31,6 +33,7 @@ public class GirisFacade extends AbstractFacade<Giris> {
                 return false;
             }
         } catch (Exception e) {
+            //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "HATA", e.getMessage()));
             return false;
         }
 

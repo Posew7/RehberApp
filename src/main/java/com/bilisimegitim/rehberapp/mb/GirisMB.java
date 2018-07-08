@@ -6,6 +6,7 @@ import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 @Named(value = "girisMB")
 @RequestScoped
@@ -41,6 +42,8 @@ public class GirisMB {
         boolean sonuc = girisFacade.girisKontrol(kullanici, sifre);
 
         if (sonuc) {
+            HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+            session.setAttribute("username", kullanici);
             return "menu.xhtml";
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "HATA", "kullanıcı adı veya şifre yanlış"));
