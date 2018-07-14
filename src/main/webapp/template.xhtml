@@ -29,10 +29,10 @@
                 <h:form>
                     <p:menu toggleable="true">
                         <p:submenu label="Kişi İşlemleri">
-                            <p:menuitem value="Ekle" action="kisiEkle.xhtml"  icon="ui-icon-disk" />
+                            <p:menuitem value="Ekle" action="kisiEkle.xhtml?faces-redirect=true"  icon="ui-icon-disk" />
                             <p:menuitem value="Sil" actionListener="#"  icon="ui-icon-disk" />
                             <p:menuitem value="Güncelle" actionListener="#"  icon="ui-icon-arrowrefresh-1-w"/>
-                            <p:menuitem value="Listele" actionListener="#"  icon="ui-icon-disk" />
+                            <p:menuitem value="Listele" action="kisiListele.xhtml?faces-redirect=true"  icon="ui-icon-disk" />
                         </p:submenu>
                         <p:submenu label="Non-Ajax">
                             <p:menuitem value="Delete" actionListener="#"  ajax="false" icon="ui-icon-close"/>

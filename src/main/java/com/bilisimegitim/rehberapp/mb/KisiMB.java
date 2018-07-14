@@ -6,6 +6,7 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
@@ -22,7 +23,10 @@ public class KisiMB implements Serializable {
     private BigDecimal maas;
     private java.util.Date dogtar;
 
+    private List<Kisi> kisiListesi ;
+
     public KisiMB() {
+
     }
 
     public String getAd() {
@@ -57,6 +61,17 @@ public class KisiMB implements Serializable {
         this.dogtar = dogtar;
     }
 
+    public List<Kisi> getKisiListesi() {
+        kisiListesi = kisiFacade.findAll();
+        return kisiListesi;
+    }
+
+    public void setKisiListesi(List<Kisi> kisiListesi) {
+        this.kisiListesi = kisiListesi;
+    }
+    
+    
+
     public String ekle() {
         Kisi k = new Kisi();
         k.setAd(ad);
@@ -66,12 +81,19 @@ public class KisiMB implements Serializable {
 
         kisiFacade.create(k);
 
-        return "kisiListele.xhtml";
+        kisiListesi = kisiFacade.findAll();
+        
+        return "kisiListele.xhtml?faces-redirect=true";
     }
 
     public List<Kisi> listele() {
 
-        return kisiFacade.findAll();
+        if (kisiListesi == null) {
+            kisiListesi = kisiFacade.findAll();
+            return kisiListesi;
+        } else {
+            return kisiListesi;
+        }
 
     }
 

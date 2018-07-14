@@ -12,20 +12,20 @@
 
             <ui:define name="content">
                 <h:form>
-                    <p:dataTable var="kisi" value="#{kisiMB.listele()}">
-                        <p:column headerText="Ad">
+                    <p:dataTable var="kisi" value="#{kisiMB.listele()}" paginator="true" rows="10">
+                        <p:column headerText="Ad" sortBy="#{kisi.ad}">
                             <h:outputText value="#{kisi.ad}" />
                         </p:column>
 
-                        <p:column headerText="Soyad">
+                        <p:column headerText="Soyad" sortBy="#{kisi.soyad}">
                             <h:outputText value="#{kisi.soyad}" />
                         </p:column>
 
-                        <p:column headerText="Maaş">
+                        <p:column headerText="Maaş" sortBy="#{kisi.maas}">
                             <h:outputText value="#{kisi.maas}" />
                         </p:column>
 
-                        <p:column headerText="Doğum Tarihi">
+                        <p:column headerText="Doğum Tarihi" sortBy="#{kisi.dogtar}">
                             <h:outputText value="#{kisi.dogtar}">
                                 <f:convertDateTime pattern="dd/mm/yyyy"/>
                             </h:outputText>

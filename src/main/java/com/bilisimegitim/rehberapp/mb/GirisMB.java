@@ -44,7 +44,7 @@ public class GirisMB {
         if (sonuc) {
             HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
             session.setAttribute("username", kullanici);
-            return "menu.xhtml";
+            return "menu.xhtml?faces-redirect=true";
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "HATA", "kullanıcı adı veya şifre yanlış"));
             return "";
