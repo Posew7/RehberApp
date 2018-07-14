@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 @Named(value = "kisiMB")
 @SessionScoped
@@ -125,6 +127,10 @@ public class KisiMB implements Serializable {
         k.setDogtar(dogtar);
         
         kisiFacade.edit(k);
+        
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "başarılı", no+" numaralı kayıt güncellendi"));
+        
+        temizle();
         
         return "";
     }
