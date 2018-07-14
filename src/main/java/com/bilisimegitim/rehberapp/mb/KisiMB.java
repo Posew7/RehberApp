@@ -18,15 +18,24 @@ public class KisiMB implements Serializable {
     @EJB
     private KisiFacade kisiFacade;
 
+    private int no;
     private String ad;
     private String soyad;
     private BigDecimal maas;
     private java.util.Date dogtar;
 
-    private List<Kisi> kisiListesi ;
+    private List<Kisi> kisiListesi;
 
     public KisiMB() {
 
+    }
+
+    public int getNo() {
+        return no;
+    }
+
+    public void setNo(int no) {
+        this.no = no;
     }
 
     public String getAd() {
@@ -69,8 +78,6 @@ public class KisiMB implements Serializable {
     public void setKisiListesi(List<Kisi> kisiListesi) {
         this.kisiListesi = kisiListesi;
     }
-    
-    
 
     public String ekle() {
         Kisi k = new Kisi();
@@ -82,7 +89,7 @@ public class KisiMB implements Serializable {
         kisiFacade.create(k);
 
         kisiListesi = kisiFacade.findAll();
-        
+
         return "kisiListele.xhtml?faces-redirect=true";
     }
 
@@ -95,6 +102,11 @@ public class KisiMB implements Serializable {
             return kisiListesi;
         }
 
+    }
+    
+    public String sil(){
+        
+        return "";
     }
 
 }
