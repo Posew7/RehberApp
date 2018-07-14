@@ -103,10 +103,15 @@ public class KisiMB implements Serializable {
         }
 
     }
-    
-    public String sil(){
-        
-        return "";
+
+    public String sil() {
+
+        Kisi k = kisiFacade.find(no);
+        kisiFacade.remove(k);
+
+        kisiListesi = kisiFacade.findAll();
+
+        return "kisiListele.xhtml?faces-redirect=true";
     }
 
 }
