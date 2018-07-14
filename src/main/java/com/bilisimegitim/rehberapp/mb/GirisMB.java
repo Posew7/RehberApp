@@ -52,4 +52,12 @@ public class GirisMB {
 
     }
 
+    public String guvenliCikis() {
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "SESSİON SONLANDIRILDI", session.getId() + "no id sonlandırıldı"));
+        
+        return "giris.xhtml?faces-redirect=true";
+        
+    }
+
 }
