@@ -114,4 +114,42 @@ public class KisiMB implements Serializable {
         return "kisiListele.xhtml?faces-redirect=true";
     }
 
+    public String guncelle() {
+
+        Kisi k = new Kisi();
+        
+        k.setNo(no);
+        k.setAd(ad);
+        k.setSoyad(soyad);
+        k.setMaas(maas);
+        k.setDogtar(dogtar);
+        
+        kisiFacade.edit(k);
+        
+        return "";
+    }
+
+    public String getir() {
+
+        Kisi k = kisiFacade.find(no);
+
+        this.ad = k.getAd();
+        this.soyad = k.getSoyad();
+        this.maas = k.getMaas();
+        this.dogtar = k.getDogtar();
+
+        return "";
+    }
+
+    public String temizle(){
+        
+        no = 0;
+        ad = "";
+        soyad = "";
+        maas = null;
+        dogtar = null;
+        
+        return "";
+    }
+    
 }

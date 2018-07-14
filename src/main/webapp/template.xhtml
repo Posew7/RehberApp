@@ -30,13 +30,12 @@
                     <p:menu toggleable="true">
                         <p:submenu label="Kişi İşlemleri">
                             <p:menuitem value="Ekle" action="kisiEkle.xhtml?faces-redirect=true"  icon="ui-icon-disk" />
-                            <p:menuitem value="Sil" actionListener="#"  icon="ui-icon-disk" />
-                            <p:menuitem value="Güncelle" actionListener="#"  icon="ui-icon-arrowrefresh-1-w"/>
-                            <p:menuitem value="Listele" action="kisiListele.xhtml?faces-redirect=true"  icon="ui-icon-disk" />
+                            <p:menuitem value="Sil" action="kisiSil.xhtml?faces-redirect=true"  icon="ui-icon-close" />
+                            <p:menuitem value="Güncelle" action="kisiGuncelle.xhtml?faces-redirect=true"  icon="ui-icon-arrowrefresh-1-w"/>
+                            <p:menuitem value="Listele" action="kisiListele.xhtml?faces-redirect=true"  icon="ui-icon-script" />
+                            <p:menuitem value="Menü" action="menu.xhtml?faces-redirect=true"  ajax="false" icon="ui-icon-close"/>
                         </p:submenu>
-                        <p:submenu label="Non-Ajax">
-                            <p:menuitem value="Delete" actionListener="#"  ajax="false" icon="ui-icon-close"/>
-                        </p:submenu>
+
                         <p:submenu label="Navigations">
                             <p:menuitem value="External" url="http://www.primefaces.org" icon="ui-icon-home"/>
                             <p:menuitem value="Internal" icon="ui-icon-star"/>
